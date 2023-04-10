@@ -1,12 +1,6 @@
-# 0.10.6 (2023-08-28)
+# 0.10.6 (2021-01-22)
 
-* Deprecate `spec-tools.openapi/openapi-spec`
-* Update Dependencies
-
-```clojure
--  :dependencies [[org.clojure/spec.alpha "0.2.187"]]
-+  :dependencies [[org.clojure/spec.alpha "0.3.218"]]
-```
+* Add option to create references for models
 
 # 0.10.5 (2021-01-22)
 
