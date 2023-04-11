@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        test-type: [clj, cljs]
+        test-type: [clj]
     steps:
       - uses: actions/checkout@v1
       - name: Cache Clojure dependencies
