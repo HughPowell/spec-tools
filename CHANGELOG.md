@@ -1,4 +1,8 @@
-# 0.10.6 (2021-01-22)
+# 0.10.7 (2023-04-23)
+
+* Handle additionalProperties correctly
+
+# 0.10.6 (2023-04-21)
 
 * Add option to create references for models
 
