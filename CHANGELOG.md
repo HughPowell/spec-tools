@@ -1,8 +1,12 @@
-# 0.10.7 (2023-04-23)
+# 0.10.8 (2023-04-18)
+
+* Add option to not generate default titles
+
+# 0.10.7 (2023-03-23)
 
 * Handle additionalProperties correctly
 
-# 0.10.6 (2023-04-21)
+# 0.10.6 (2023-03-21)
 
 * Add option to create references for models
 
