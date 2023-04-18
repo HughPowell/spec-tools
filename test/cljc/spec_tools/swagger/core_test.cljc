@@ -234,7 +234,18 @@
 (deftest test-expectations-with-refs
   (doseq [[spec swagger-spec] ref-expectations]
     (is (= swagger-spec (swagger/transform spec {:refs? true :type :schema})))
-    (is (= swagger-spec (swagger/transform spec {:refs? true :in :body}))) ) )
+    (is (= swagger-spec (swagger/transform spec {:refs? true :in :body})))))
+
+(s/def ::default-titled-string (st/create-spec {:spec ::string}))
+(s/def ::explicitly-titled-string (st/create-spec {:spec          ::string
+                                                   :swagger/title "String Title"}))
+(deftest test-expectations-with-default-titles
+  (testing "automatically generated title is included by default"
+    (is ::default-titled-string (keyword (:title (swagger/transform ::default-titled-string)))))
+  (testing "explicitly exclude default title"
+    (is (not (contains? (swagger/transform ::default-titled-string {:default-titles? false}) :title))))
+  (testing "Swagger title is included irrespective"
+    (is (= "String Title" (:title (swagger/transform ::explicitly-titled-string {:default-titles? false}))))))
 
 (deftest parameter-test
   (testing "nilable body is not required"
@@ -517,6 +528,7 @@
                                                                   404 {:description "Ohnoes."}}}}}}]
        (is (nil? (-> data swagger/swagger-spec v/validate)))
        (is (nil? (-> data (swagger/swagger-spec {:refs? true}) v/validate))))))
+
 
 (deftest backport-swagger-meta-unnamespaced
   (is (= (swagger/transform
