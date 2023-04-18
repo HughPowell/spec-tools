@@ -1,4 +1,4 @@
-(defproject net.hughpowell/spec-tools "0.10.8"
+(defproject net.hughpowell/spec-tools "0.10.9"
   :description "Clojure(Script) tools for clojure.spec - forked from github.com/metosin/spec-tools"
   :url "https://github.com/metosin/spec-tools"
   :license {:name "Eclipse Public License", :url "https://www.eclipse.org/legal/epl-2.0/"}

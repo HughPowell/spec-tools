@@ -1,3 +1,7 @@
+# 0.10.9 (2023-04-18)
+
+* Remove empty definitions key
+
 # 0.10.8 (2023-04-18)
 
 * Add option to not generate default titles
