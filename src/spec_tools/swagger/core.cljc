@@ -85,7 +85,10 @@
   (let [[_ data] (impl/extract-form spec)
         swagger-meta (impl/unlift-keys data "swagger")]
     (or (:swagger data)
-        (merge (json-schema/accept-spec dispatch spec children options) swagger-meta))))
+        (let [json-schema (json-schema/accept-spec dispatch spec children options)]
+          (cond-> json-schema
+            (false? (:default-titles? options)) (dissoc :title)
+            :always (merge swagger-meta))))))
 
 (defmethod accept-spec ::default [dispatch spec children options]
   (json-schema/accept-spec dispatch spec children options))
@@ -140,10 +143,10 @@
 
   Available options:
 
-  | Key      | Description
-  |----------|-----------------------------------------------------------
-  | `:refs?` | Whether refs should be created for objects. Default: false
-
+  | Key                | Description
+  |--------------------|-----------------------------------------------------------
+  | `:refs?`           | Whether refs should be created for objects. Default: false
+  | `:default-titles?` | Whether to automatically include titles. Default: true
   "
   ([spec]
    (transform spec nil))
@@ -257,9 +260,10 @@
 
   Available options:
 
-  | Key      | Description
-  |----------|-----------------------------------------------------------
-  | `:refs?` | Whether refs should be created for objects. Default: false
+  | Key                | Description
+  |--------------------|-----------------------------------------------------------
+  | `:refs?`           | Whether refs should be created for objects. Default: false
+  | `:default-titles?` | Whether to automatically include titles. Default: true
   "
   ([x]
    (swagger-spec x nil))
