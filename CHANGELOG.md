@@ -1,3 +1,7 @@
+# 0.10.10 (2023-08-04)
+
+* Extract child definitions when accepting merges
+
 # 0.10.9 (2023-04-18)
 
 * Remove empty definitions key
