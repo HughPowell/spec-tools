@@ -13,7 +13,6 @@ jobs:
         with:
            distribution: zulu
            java-version: "8"
-           cache: maven
       - name: Deploy to Clojars
         run: lein deploy releases
         env:
