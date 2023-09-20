@@ -1,3 +1,14 @@
+# 0.10.11 (2023-09-20)
+
+* Rebase Metosin's changes
+* Deprecate `spec-tools.openapi/openapi-spec`
+* Update Dependencies
+
+```clojure
+-  :dependencies [[org.clojure/spec.alpha "0.2.187"]]
++  :dependencies [[org.clojure/spec.alpha "0.3.218"]]
+```
+
 # 0.10.10 (2023-08-04)
 
 * Extract child definitions when accepting merges
