@@ -1,3 +1,7 @@
+# 0.10.12 (2023-09-21)
+
+* Shenanigans to update a workflow
+
 # 0.10.11 (2023-09-20)
 
 * Rebase Metosin's changes
